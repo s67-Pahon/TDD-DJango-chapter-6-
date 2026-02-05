@@ -16,6 +16,9 @@ COPY src /src
 
 WORKDIR /src
 
+RUN python manage.py collectstatic
+
+ENV DJANGO_DEBUG_FALSE=1
 
 #CMD ["gunicorn","sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8888"]
 
