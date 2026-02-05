@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-v6pdf(9-$#yrgt%&tp5bqop#u8^omqfn&+)$alnhqceyniv3pj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = [
+   'https://test-repo-latest-0e9t.onrender.com',
+]
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,8 +45,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
